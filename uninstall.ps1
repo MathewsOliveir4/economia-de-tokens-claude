@@ -1,4 +1,4 @@
-# Economia de Tokens para Claude Code — desinstalador (Windows / PowerShell)
+# Economia de Tokens para Claude Code — uninstaller / desinstalador (Windows / PowerShell)
 # Uso (um comando só, sem baixar nada):
 #   irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/uninstall.ps1 | iex
 # Remove o modo econômico do ~/.claude/CLAUDE.md e os comandos /resumo e /retomar.
@@ -8,9 +8,9 @@ $claude = Join-Path $HOME '.claude'
 $md     = Join-Path $claude 'CLAUDE.md'
 $utf8   = New-Object System.Text.UTF8Encoding($false)
 
-foreach ($c in 'resumo', 'retomar') {
+foreach ($c in 'resumo', 'retomar', 'handoff', 'pickup') {
     $f = Join-Path (Join-Path $claude 'commands') "$c.md"
-    if (Test-Path $f) { Remove-Item $f -Force; Write-Host "OK  Comando /$c removido" }
+    if (Test-Path $f) { Remove-Item $f -Force; Write-Host "OK  /$c removed" }
 }
 
 if (Test-Path $md) {
@@ -21,7 +21,7 @@ if (Test-Path $md) {
     if ($novo -ne $txt) {
         $novo = $novo.Trim()
         if ($novo) { [IO.File]::WriteAllText($md, $novo + "`n", $utf8) } else { Remove-Item $md -Force }
-        Write-Host "OK  Modo economico removido do CLAUDE.md"
+        Write-Host "OK  Economy mode removed from CLAUDE.md"
     }
 }
-Write-Host "Pronto. Reabra o Claude Code. (Notas e resumos salvos foram mantidos.)"
+Write-Host "Done. Reopen Claude Code. (Your notes and summaries were kept.)"

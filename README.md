@@ -1,78 +1,82 @@
 <div align="center">
 
-# 🪙 Economia de Tokens para Claude Code
+**English** · [Português](README.pt-BR.md)
 
-**Gaste menos tokens no Claude Code sem perder qualidade.**
-Um prompt testado, dois comandos (`/resumo` e `/retomar`) e uma nota de consulta para o Obsidian, com instalação em 1 minuto.
+# 🪙 Token Saver for Claude Code
 
-![Respostas](https://img.shields.io/badge/respostas-até%2069%25%20menores-2ea44f)
-![Custo](https://img.shields.io/badge/custo%20por%20pedido-22–42%25%20menor-2ea44f)
-![Conversas longas](https://img.shields.io/badge/conversas%20longas-57%25%20mais%20baratas-2ea44f)
-![Oficial](https://img.shields.io/badge/100%25-recursos%20oficiais-blueviolet)
-![Licença](https://img.shields.io/badge/licença-MIT-blue)
+**Spend fewer tokens in Claude Code without losing quality.**
+A benchmarked prompt, two slash commands (`/handoff` and `/pickup`) and a reference note for Obsidian, installed in one command.
+
+![Answers](https://img.shields.io/badge/answers-up%20to%2069%25%20shorter-2ea44f)
+![Cost](https://img.shields.io/badge/cost%20per%20request-22–42%25%20lower-2ea44f)
+![Long chats](https://img.shields.io/badge/long%20chats-57%25%20cheaper-2ea44f)
+![Official](https://img.shields.io/badge/100%25-official%20features-blueviolet)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 </div>
 
 ---
 
-## Por que existe
+## Why this exists
 
-Em cada mensagem, o Claude Code relê **todo o histórico** da conversa. A maior parte do gasto vem da **entrada** (histórico, arquivos lidos, instruções), não do tamanho da resposta. Prompts que só deixam a resposta "telegráfica" ajudam, mas pouco.
+On every message, Claude Code re-reads **the entire conversation history**. Most of the cost comes from **input** (history, files read, instructions), not from the length of the answer. Prompts that only make answers terse help, but only a little.
 
-Este kit ataca os dois lados:
+This kit tackles both sides:
 
-| Problema | Solução do kit |
+| Problem | What the kit does |
 |---|---|
-| Respostas longas, com enrolação | **Modo econômico** automático em todos os projetos |
-| Conversas longas carregam um histórico enorme | **`/resumo`** comprime a conversa em até 15 linhas e salva em arquivo |
-| Recomeçar do zero numa conversa nova | **`/retomar`** continua exatamente de onde parou |
-| Esquecer as boas práticas | **Nota de consulta** pronta para o Obsidian (ou qualquer pasta) |
+| Long, padded answers | **Economy mode**, on automatically in every project |
+| Long conversations drag a huge history along | **`/handoff`** compresses the conversation into 15 lines and saves it to a file |
+| Starting over in a new conversation | **`/pickup`** continues exactly where you left off |
+| Forgetting the good habits | **Reference note** ready for Obsidian (or any folder) |
 
-## 📊 Resultados medidos
+## 📊 Measured results
 
-Testado com o Claude Code real (modelo Sonnet 5.5), mesmas tarefas com e sem o kit, 2 repetições cada. Os scripts estão em [`teste/`](teste/), então dá para reproduzir.
+Tested with the real Claude Code (Sonnet 5.5 model): the same tasks with and without the kit, 2 runs each. The scripts are in [`teste/`](teste/), so you can reproduce them.
 
-| Tarefa | Tamanho da resposta | Custo por pedido |
+| Task | Answer length | Cost per request |
 |---|---|---|
-| Explicar git merge × rebase | 906 → 314 tokens (**−65%**) | **−42%** |
-| Escrever código (CSV de gastos) | 876 → 376 (**−57%**) | **−30%** |
-| Resolver erro de Python | 636 → 198 (**−69%**) | **−31%** |
-| Normas ABNT (texto acadêmico) | 884 → 501 (**−43%**) | **−22%** |
+| Explain git merge vs. rebase | 906 → 314 tokens (**−65%**) | **−42%** |
+| Write code (expenses CSV) | 876 → 376 (**−57%**) | **−30%** |
+| Fix a Python error | 636 → 198 (**−69%**) | **−31%** |
+| Academic formatting rules | 884 → 501 (**−43%**) | **−22%** |
 
-**Resumo de passagem:** um histórico de ~6.800 tokens virou ~700. Cada mensagem seguinte ficou **57% mais barata**, e o resumo se pagou já na primeira mensagem. A qualidade se manteve em todos os testes: as respostas só perdem a enrolação, não o conteúdo.
+**Handoff summary:** a ~6,800-token history became ~700 tokens. Each following message was **57% cheaper**, and the summary paid for itself on the very first message. Quality held up in every test: answers lose the filler, not the content.
 
-## ⚡ Instalação (um comando)
+> The benchmark prompts were in Portuguese. The English prompts are direct translations of the same rules.
 
-**Windows — cole no PowerShell:**
+## ⚡ Install (one command)
+
+**Windows: paste into PowerShell**
 ```powershell
-irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.ps1 | iex
+$env:KIT_LANG='en'; irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.ps1 | iex
 ```
 
-**macOS / Linux — cole no terminal:**
+**macOS / Linux: paste into your terminal**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.sh | bash -s -- --lang en
 ```
 
-Depois, reabra o VS Code (ou o terminal do Claude Code) e digite `/`. Os comandos `/resumo` e `/retomar` devem aparecer.
+Then reopen VS Code (or your Claude Code terminal) and type `/`. You should see `/handoff` and `/pickup`.
 
-> O instalador **não apaga nada**: ele acrescenta o modo econômico ao fim do seu `~/.claude/CLAUDE.md` e pode ser rodado de novo sem duplicar o conteúdo. A nota de consulta vai para `Documentos/Economia de Tokens`.
+> The installer **never deletes anything**: it appends economy mode to the end of your `~/.claude/CLAUDE.md`, and you can run it again without duplicating anything. The reference note goes to `Documents/Token Saving`.
 
 <details>
-<summary>Prefere clonar, ou quer salvar a nota direto no seu cofre do Obsidian?</summary>
+<summary>Prefer to clone, or want the note saved straight into your Obsidian vault?</summary>
 
 ```bash
 git clone https://github.com/MathewsOliveir4/economia-de-tokens-claude.git
 cd economia-de-tokens-claude
 ```
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\install.ps1 -Pasta "C:\caminho\do\seu\cofre"
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -Lang en -Pasta "C:\path\to\your\vault"
 ```
 ```bash
-./install.sh "/caminho/do/seu/cofre"
+./install.sh --lang en "/path/to/your/vault"
 ```
 </details>
 
-## 🗑️ Desinstalação (um comando)
+## 🗑️ Uninstall (one command)
 
 **Windows:**
 ```powershell
@@ -84,80 +88,72 @@ irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/
 curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/uninstall.sh | bash
 ```
 
-Isso remove o modo econômico e os comandos `/resumo` e `/retomar`. O resto do seu `CLAUDE.md`, suas notas e seus resumos salvos continuam intactos. Também funciona se você instalou na mão, sem o instalador.
+This removes economy mode and the slash commands. The rest of your `CLAUDE.md`, your notes and your saved summaries stay untouched.
 
-## 🧰 O que vem no kit
+## 🧰 What's in the kit
 
 ```
-claude/CLAUDE-global.md      → modo econômico (vai para ~/.claude/CLAUDE.md)
-claude/commands/resumo.md    → comando /resumo
-claude/commands/retomar.md   → comando /retomar
-install.ps1 / install.sh     → instaladores
-uninstall.ps1 / uninstall.sh → desinstaladores
-nota/Economia de Tokens.md   → nota de consulta com todos os prompts
-nota/Modelo.md               → modelo de resumo de passagem
-teste/                       → scripts e dados do benchmark
+claude/en/CLAUDE-global.md      → economy mode (goes into ~/.claude/CLAUDE.md)
+claude/en/commands/handoff.md   → /handoff command
+claude/en/commands/pickup.md    → /pickup command
+nota/en/Token Saving.md         → reference note with all the prompts
+nota/en/Template.md             → handoff summary template
+claude/, nota/                  → Portuguese version (/resumo and /retomar)
+install.* / uninstall.*         → installers and uninstallers
+teste/                          → benchmark scripts and data
 ```
 
-## 🚀 Como usar
+## 🚀 How to use it
 
-| Situação | O que fazer |
+| Situation | What to do |
 |---|---|
-| Dia a dia | Nada: o modo econômico já está ativo |
-| Precisa de explicação detalhada | Diga **"modo completo"**. Para voltar, diga **"modo econômico"** |
-| A conversa ficou longa | `/resumo nome-do-assunto`, depois abra uma conversa nova |
-| Continuar outro dia | `/retomar nome-do-assunto` |
-| Trocou de assunto | Abra uma conversa nova (ou `/clear`) |
+| Day to day | Nothing: economy mode is already on |
+| You need a detailed explanation | Say **"full mode"**. To go back, say **"economy mode"** |
+| The conversation got long | `/handoff topic-name`, then open a new conversation |
+| Continue another day | `/pickup topic-name` |
+| You changed topics | Open a new conversation (or `/clear`) |
 
-Outros hábitos que economizam: `/compact` em conversas longas, `/model` para usar um modelo mais leve em tarefas simples, apontar arquivos com `@arquivo`, manter o `CLAUDE.md` curto e desligar integrações (MCP) que você não usa. Tudo isso está explicado na [nota](nota/Economia%20de%20Tokens.md).
+Other habits that save tokens: `/compact` in long conversations, `/model` to use a lighter model for simple tasks, pointing to files with `@file`, keeping `CLAUDE.md` short, and turning off integrations (MCP) you don't use. It's all in the [note](nota/en/Token%20Saving.md).
 
-## 🔬 Teste você mesmo
+## 🔬 Test it yourself
 
-Com o Claude Code instalado:
+With Claude Code installed:
 
 ```bash
 cd teste
-python3 run.py claude-sonnet-5-5     # modo normal × econômico, 4 tarefas
-python3 handoff.py                   # histórico completo × resumo de passagem
+python3 run.py claude-sonnet-5-5     # normal vs. economy mode, 4 tasks
+python3 handoff.py                   # full history vs. handoff summary
 ```
 
-Os scripts usam `claude -p --output-format json` e leem o uso de tokens que o próprio Claude Code informa. Rodar tudo custa poucos centavos de dólar.
+The scripts use `claude -p --output-format json` and read the token usage that Claude Code itself reports. Running everything costs a few cents.
 
-## ❓ Perguntas frequentes
+## ❓ FAQ
 
-**Preciso de um proxy, roteador ou gateway de IA (tipo OmniRoute, LiteLLM, OpenRouter) para economizar tokens?**
-Não. O kit usa só recursos oficiais do Claude Code: `CLAUDE.md` e comandos personalizados. Nada passa por servidores de terceiros, suas credenciais ficam só com você e sua conta continua dentro dos termos de uso do serviço.
+**Do I need a proxy, router or AI gateway (like OmniRoute, LiteLLM or OpenRouter) to save tokens?**
+No. The kit uses only official Claude Code features: `CLAUDE.md` and custom slash commands. Nothing goes through third-party servers, your credentials stay with you, and your account stays within the service's terms of use.
 
-**Funciona no Claude Code do VS Code e no terminal?**
-Sim. Os dois leem a mesma pasta `~/.claude`.
+**Does it work in Claude Code for VS Code and in the terminal?**
+Yes. Both read the same `~/.claude` folder.
 
-**E no app do Claude (web, desktop ou celular)?**
-Os comandos são do Claude Code, mas os prompts da nota funcionam em qualquer lugar: é só colar o bloco desejado.
+**What about the Claude app (web, desktop, mobile)?**
+The slash commands are for Claude Code, but the prompts in the note work anywhere: just paste the block you need.
 
-**O modo econômico piora as respostas?**
-Nos testes, não. Para estudo ou textos em que a explicação é o objetivo, use "modo completo".
+**Does economy mode make answers worse?**
+Not in our tests. For studying, or when the explanation is the point, say "full mode".
 
-**Como desinstalar?**
-Com um comando: veja [Desinstalação](#️-desinstalação-um-comando). Ou peça ao próprio Claude Code: *"remova o kit Economia de Tokens: o bloco de modo econômico do ~/.claude/CLAUDE.md e os comandos resumo e retomar"*.
+**Why aren't the commands called `/summary` and `/resume`?**
+`/resume` is already a built-in Claude Code command, so the kit uses `/handoff` and `/pickup` to avoid conflicts.
 
-## 💚 Apoie o projeto
+## 💚 Support the project
 
-Se o kit te ajudou a economizar, considere apoiar: deixe uma ⭐ no repositório, compartilhe com quem usa Claude Code ou mande um Pix de qualquer valor.
+If the kit saved you tokens, give it a ⭐ and share it with other Claude Code users. From Brazil, you can also send a Pix of any amount:
 
-**Chave Pix (aleatória):**
 ```
 f2c6046e-1546-44fd-afc1-8aafb6233837
 ```
 
 ---
 
-<details>
-<summary><b>🇺🇸 English summary</b></summary>
+<sub>Keywords: Claude Code token saver, reduce Claude Code token usage, Claude Code cost, Claude usage limits, CLAUDE.md, custom slash commands, economy prompt, handoff summary, context management, Obsidian, AI gateway alternative, economia de tokens.</sub>
 
-**Claude Code token saver kit.** Reduce Claude Code token usage and cost with official features only, with no proxy or AI gateway. It includes a tested "economy mode" `CLAUDE.md` prompt (responses up to 69% shorter, 22–42% cheaper per request), plus `/resumo` (session handoff summary saved to a file) and `/retomar` (resume from summary) slash commands, which made long conversations 57% cheaper. It also ships an Obsidian note with all the prompts. One-line installers and uninstallers for Windows (PowerShell) and macOS/Linux, plus reproducible benchmark scripts. Prompts are in Portuguese, but they work the same in any language.
-
-</details>
-
-<sub>Palavras-chave: economia de tokens, reduzir tokens Claude Code, Claude Code mais barato, limite de uso Claude, CLAUDE.md, comandos personalizados, slash commands, prompt econômico, Obsidian, alternativa a gateway de IA, token saver, reduce Claude Code token usage.</sub>
-
-Feito por [@MathewsOliveir4](https://github.com/MathewsOliveir4) · Licença MIT
+Made by [@MathewsOliveir4](https://github.com/MathewsOliveir4) · MIT License

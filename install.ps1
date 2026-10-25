@@ -1,6 +1,8 @@
 <#
   Economia de Tokens para Claude Code — instalador (Windows / PowerShell)
-  Uso:  .\install.ps1                      # salva a nota e os resumos em Documentos\Economia de Tokens
+  Uso rápido (um comando só, sem clonar):
+        irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.ps1 | iex
+  Uso local:  .\install.ps1                      # salva a nota e os resumos em Documentos\Economia de Tokens
         .\install.ps1 -Pasta "C:\caminho\do\seu\cofre-obsidian"
   Pode ser executado mais de uma vez sem duplicar nada.
 #>
@@ -8,6 +10,13 @@ param([string]$Pasta = "$([Environment]::GetFolderPath('MyDocuments'))\Economia 
 
 $ErrorActionPreference = 'Stop'
 $repo    = $PSScriptRoot
+if (-not $repo) {   # executado via "irm | iex": baixa o kit para uma pasta temporária
+    $tmp = Join-Path ([IO.Path]::GetTempPath()) ("economia-tokens-" + [guid]::NewGuid())
+    New-Item -ItemType Directory -Force $tmp | Out-Null
+    Invoke-WebRequest 'https://github.com/MathewsOliveir4/economia-de-tokens-claude/archive/refs/heads/main.zip' -OutFile "$tmp/kit.zip" -UseBasicParsing
+    Expand-Archive "$tmp/kit.zip" $tmp -Force
+    $repo = Join-Path $tmp 'economia-de-tokens-claude-main'
+}
 $claude  = Join-Path $HOME '.claude'
 $cmds    = Join-Path $claude 'commands'
 $resumos = Join-Path $Pasta 'Resumos'

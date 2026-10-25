@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 # Economia de Tokens para Claude Code — instalador (macOS / Linux)
-# Uso: ./install.sh                         (salva em ~/Documents/Economia de Tokens)
+# Uso rápido: curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.sh | bash
+# Uso local: ./install.sh                         (salva em ~/Documents/Economia de Tokens)
 #      ./install.sh "/caminho/do/seu/cofre"
 set -euo pipefail
-REPO="$(cd "$(dirname "$0")" && pwd)"
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd)"
+if [ ! -f "$REPO/claude/CLAUDE-global.md" ]; then   # executado via "curl | bash"
+  TMP="$(mktemp -d)"
+  curl -fsSL https://github.com/MathewsOliveir4/economia-de-tokens-claude/archive/refs/heads/main.tar.gz | tar xz -C "$TMP"
+  REPO="$TMP/economia-de-tokens-claude-main"
+fi
 PASTA="${1:-$HOME/Documents/Economia de Tokens}"
 CLAUDE="$HOME/.claude"; RESUMOS="$PASTA/Resumos"
 mkdir -p "$CLAUDE/commands" "$RESUMOS"

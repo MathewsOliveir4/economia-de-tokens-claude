@@ -41,28 +41,50 @@ Testado com o Claude Code real (modelo Sonnet 5.5), mesmas tarefas com e sem o k
 
 **Resumo de passagem:** um histórico de ~6.800 tokens virou ~700. Cada mensagem seguinte ficou **57% mais barata**, e o resumo se pagou já na primeira mensagem. A qualidade se manteve em todos os testes: as respostas só perdem a enrolação, não o conteúdo.
 
-## ⚡ Instalação
+## ⚡ Instalação (um comando)
+
+**Windows — cole no PowerShell:**
+```powershell
+irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.ps1 | iex
+```
+
+**macOS / Linux — cole no terminal:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/install.sh | bash
+```
+
+Depois, reabra o VS Code (ou o terminal do Claude Code) e digite `/`. Os comandos `/resumo` e `/retomar` devem aparecer.
+
+> O instalador **não apaga nada**: ele acrescenta o modo econômico ao fim do seu `~/.claude/CLAUDE.md` e pode ser rodado de novo sem duplicar o conteúdo. A nota de consulta vai para `Documentos/Economia de Tokens`.
+
+<details>
+<summary>Prefere clonar, ou quer salvar a nota direto no seu cofre do Obsidian?</summary>
 
 ```bash
 git clone https://github.com/MathewsOliveir4/economia-de-tokens-claude.git
 cd economia-de-tokens-claude
 ```
-
-**Windows (PowerShell)**
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\install.ps1
-# ou, para salvar a nota direto no seu cofre do Obsidian:
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Pasta "C:\caminho\do\seu\cofre"
 ```
-
-**macOS / Linux**
 ```bash
-./install.sh                       # ou: ./install.sh "/caminho/do/seu/cofre"
+./install.sh "/caminho/do/seu/cofre"
+```
+</details>
+
+## 🗑️ Desinstalação (um comando)
+
+**Windows:**
+```powershell
+irm https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/uninstall.ps1 | iex
 ```
 
-Depois, reabra o VS Code (ou o terminal do Claude Code) e digite `/`. Os comandos `/resumo` e `/retomar` devem aparecer.
+**macOS / Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/MathewsOliveir4/economia-de-tokens-claude/main/uninstall.sh | bash
+```
 
-> O instalador **não apaga nada**: ele acrescenta o modo econômico ao fim do seu `~/.claude/CLAUDE.md` e pode ser rodado de novo sem duplicar o conteúdo.
+Isso remove o modo econômico e os comandos `/resumo` e `/retomar`. O resto do seu `CLAUDE.md`, suas notas e seus resumos salvos continuam intactos. Também funciona se você instalou na mão, sem o instalador.
 
 ## 🧰 O que vem no kit
 
@@ -70,6 +92,8 @@ Depois, reabra o VS Code (ou o terminal do Claude Code) e digite `/`. Os comando
 claude/CLAUDE-global.md      → modo econômico (vai para ~/.claude/CLAUDE.md)
 claude/commands/resumo.md    → comando /resumo
 claude/commands/retomar.md   → comando /retomar
+install.ps1 / install.sh     → instaladores
+uninstall.ps1 / uninstall.sh → desinstaladores
 nota/Economia de Tokens.md   → nota de consulta com todos os prompts
 nota/Modelo.md               → modelo de resumo de passagem
 teste/                       → scripts e dados do benchmark
@@ -114,7 +138,7 @@ Os comandos são do Claude Code, mas os prompts da nota funcionam em qualquer lu
 Nos testes, não. Para estudo ou textos em que a explicação é o objetivo, use "modo completo".
 
 **Como desinstalar?**
-Apague o bloco entre `<!-- economia-de-tokens:inicio -->` e `<!-- economia-de-tokens:fim -->` em `~/.claude/CLAUDE.md` e os arquivos `resumo.md` e `retomar.md` de `~/.claude/commands/`.
+Com um comando: veja [Desinstalação](#️-desinstalação-um-comando). Ou peça ao próprio Claude Code: *"remova o kit Economia de Tokens: o bloco de modo econômico do ~/.claude/CLAUDE.md e os comandos resumo e retomar"*.
 
 ## 💚 Apoie o projeto
 
@@ -130,7 +154,7 @@ f2c6046e-1546-44fd-afc1-8aafb6233837
 <details>
 <summary><b>🇺🇸 English summary</b></summary>
 
-**Claude Code token saver kit.** Reduce Claude Code token usage and cost with official features only, with no proxy or AI gateway. It includes a tested "economy mode" `CLAUDE.md` prompt (responses up to 69% shorter, 22–42% cheaper per request), plus `/resumo` (session handoff summary saved to a file) and `/retomar` (resume from summary) slash commands, which made long conversations 57% cheaper. It also ships an Obsidian note with all the prompts. One-command installers for Windows (PowerShell) and macOS/Linux, plus reproducible benchmark scripts. Prompts are in Portuguese, but they work the same in any language.
+**Claude Code token saver kit.** Reduce Claude Code token usage and cost with official features only, with no proxy or AI gateway. It includes a tested "economy mode" `CLAUDE.md` prompt (responses up to 69% shorter, 22–42% cheaper per request), plus `/resumo` (session handoff summary saved to a file) and `/retomar` (resume from summary) slash commands, which made long conversations 57% cheaper. It also ships an Obsidian note with all the prompts. One-line installers and uninstallers for Windows (PowerShell) and macOS/Linux, plus reproducible benchmark scripts. Prompts are in Portuguese, but they work the same in any language.
 
 </details>
 

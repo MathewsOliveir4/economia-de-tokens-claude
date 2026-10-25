@@ -146,12 +146,31 @@ Com um comando: veja [Desinstalação](#️-desinstalação-um-comando). Ou peç
 
 ## 💚 Apoie o projeto
 
-Se o kit te ajudou a economizar, considere apoiar: deixe uma ⭐ no repositório, compartilhe com quem usa Claude Code ou mande um Pix de qualquer valor.
+Se o kit te ajudou a economizar, deixe uma ⭐ no repositório e compartilhe com quem usa Claude Code. Também dá para apoiar com qualquer valor:
 
-**Chave Pix (aleatória):**
+<table>
+<tr>
+<td align="center" width="50%">
+
+**🇧🇷 Pix**
+
+Chave aleatória:
 ```
 f2c6046e-1546-44fd-afc1-8aafb6233837
 ```
+
+</td>
+<td align="center" width="50%">
+
+**🌎 PayPal**
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=382TU2X3N5FC8"><img src="https://img.shields.io/badge/Doar-PayPal-00457C?logo=paypal&logoColor=white&style=for-the-badge" alt="Doar com PayPal"/></a>
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=382TU2X3N5FC8"><img src="assets/paypal-qr.png" width="160" alt="QR code do PayPal"/></a>
+
+</td>
+</tr>
+</table>
 
 ---
 

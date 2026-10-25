@@ -146,11 +146,31 @@ Not in our tests. For studying, or when the explanation is the point, say "full 
 
 ## 💚 Support the project
 
-If the kit saved you tokens, give it a ⭐ and share it with other Claude Code users. From Brazil, you can also send a Pix of any amount:
+If the kit saved you tokens, give it a ⭐ and share it with other Claude Code users. You can also chip in any amount:
 
+<table>
+<tr>
+<td align="center" width="50%">
+
+**🌎 PayPal (worldwide)**
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=382TU2X3N5FC8"><img src="https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&logoColor=white&style=for-the-badge" alt="Donate with PayPal"/></a>
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=382TU2X3N5FC8"><img src="assets/paypal-qr.png" width="160" alt="PayPal QR code"/></a>
+
+</td>
+<td align="center" width="50%">
+
+**🇧🇷 Pix (Brazil)**
+
+Random key:
 ```
 f2c6046e-1546-44fd-afc1-8aafb6233837
 ```
+
+</td>
+</tr>
+</table>
 
 ---
 

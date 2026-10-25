@@ -116,6 +116,15 @@ Nos testes, não. Para estudo ou textos em que a explicação é o objetivo, use
 **Como desinstalar?**
 Apague o bloco entre `<!-- economia-de-tokens:inicio -->` e `<!-- economia-de-tokens:fim -->` em `~/.claude/CLAUDE.md` e os arquivos `resumo.md` e `retomar.md` de `~/.claude/commands/`.
 
+## 💚 Apoie o projeto
+
+Se o kit te ajudou a economizar, considere apoiar: deixe uma ⭐ no repositório, compartilhe com quem usa Claude Code ou mande um Pix de qualquer valor.
+
+**Chave Pix (aleatória):**
+```
+f2c6046e-1546-44fd-afc1-8aafb6233837
+```
+
 ---
 
 <details>
